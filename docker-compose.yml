@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/usr/src/app # ローカルをコンテナ内にマウント
+    command: sh -c "cd mydy-chan && yarn start"
+    ports:
+      - "3001:3000"
+    stdin_open: true
